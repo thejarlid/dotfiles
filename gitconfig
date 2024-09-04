@@ -1,0 +1,11 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Dilraj Devgun
+	email = dilrajsinghdevgun@gmail.com
+[pager]
+	branch = false
+[http]
+	postBuffer = 157286400
+[fetch]
+	prune = true
