@@ -3,6 +3,7 @@ export SAVEHIST=10000                   # Maximum events in history file
 export PS1="%2~ > "
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
+export DOTFILE_DIR=~/.dotfiles
 
 # +------------+
 # | NAVIGATION |
@@ -32,9 +33,9 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # +-----------------+
 # | AUTO COMPLETION |
 # +-----------------+
-source .completions.zsh
+source $DOTFILE_DIR/completions.zsh
 
 # +---------------------+
 # | SYNTAX HIGHLIGHTING |
 # +---------------------+
-source .zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
