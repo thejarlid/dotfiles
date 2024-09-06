@@ -1,9 +1,14 @@
+export DOTFILE_DIR=~/.dotfiles
 export HISTSIZE=10000                   # Maximum events for internal history
 export SAVEHIST=10000                   # Maximum events in history file
-export PS1="%2~ > "
+
+#export PS1="%2~ > "
+source $DOTFILE_DIR/git-prompt.sh
+setopt PROMPT_SUBST 
+PS1='%{$(tput setaf 75)%}%~ %{$(tput setaf 242)%}$(__git_ps1 " (%s) ")%{$(tput setaf 123)%}> '
+
 export CLICOLOR=1
-export LSCOLORS=ExFxBxDxCxegedabagacad
-export DOTFILE_DIR=~/.dotfiles
+export LSCOLORS=Gxfxcxdxbxegedabagacad
 
 # +------------+
 # | NAVIGATION |
