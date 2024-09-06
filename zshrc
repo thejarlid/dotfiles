@@ -5,6 +5,8 @@ export SAVEHIST=10000                   # Maximum events in history file
 #export PS1="%2~ > "
 source $DOTFILE_DIR/git-prompt.sh
 setopt PROMPT_SUBST 
+GIT_PS1_SHOWDIRTYSTATE=1 # unstaged (*) and staged (+) changes will be shown next to the branch name
+GIT_PS1_SHOWUNTRACKEDFILES=1 # if there're untracked files, then a '%' will be shown next to the branch name
 PS1='%{$(tput setaf 75)%}%~ %{$(tput setaf 242)%}$(__git_ps1 " (%s) ")%{$(tput setaf 123)%}> '
 
 export CLICOLOR=1
