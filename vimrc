@@ -24,9 +24,10 @@ set ruler
 set cursorline
 set undofile
 set wrap
-set textwidth=100
+set textwidth=120
 set formatoptions=qrn1
-set colorcolumn=80
+set colorcolumn=100
+highlight LineNr ctermfg=grey
 nnoremap <leader>w <C-w>v<C-w>l
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j

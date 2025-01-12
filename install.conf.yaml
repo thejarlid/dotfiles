@@ -13,6 +13,7 @@
     ~/.bash_profile:
     ~/.bashrc:
     ~/.gitconfig:
+    ~/.config/nvim:
     ~/.ssh/config: ssh/config
     ~/.tmux.conf:
     ~/.vimrc:
