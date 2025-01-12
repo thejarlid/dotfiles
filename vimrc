@@ -1,16 +1,16 @@
 " basic configuration
 
-set background=dark 	" remove background
-set mouse=a 		    " allow mouse mode
-syntax on		        " syntax highlighting
-set hlsearch		    " highlight all search results
-set ignorecase 		    " case insensitive search
+set background=dark     " remove background
+set mouse=a             " allow mouse mode
+syntax on               " syntax highlighting
+set hlsearch            " highlight all search results
+set ignorecase          " case insensitive search
 set smartcase           " smart case to avoid ignorecase toggles
 set incsearch           " incremental search
-set number		        " show current line number
-set relativenumber 	    " show relative line numbers
-let mapleader = "'"	    " remap the leader to '
-inoremap jk <ESC>	    " remap escape to "jk"
+set number              " show current line number
+set relativenumber      " show relative line numbers
+let mapleader = "'"     " remap the leader to '
+inoremap jk <ESC>       " remap escape to "jk"
 
 " tab settings
 set tabstop=4
