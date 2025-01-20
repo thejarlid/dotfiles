@@ -10,7 +10,7 @@ set incsearch           " incremental search
 set number              " show current line number
 set relativenumber      " show relative line numbers
 let mapleader = "'"     " remap the leader to '
-inoremap jk <ESC>       " remap escape to "jk"
+inoremap jj <ESC>       " remap escape to "jj"
 
 " tab settings
 set tabstop=4
