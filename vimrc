@@ -10,7 +10,8 @@ set incsearch           " incremental search
 set number              " show current line number
 set relativenumber      " show relative line numbers
 let mapleader = "'"     " remap the leader to '
-inoremap jj <ESC>       " remap escape to "jj"
+
+inoremap <nowait> jj <ESC>       " remap escape to "jj"
 
 " tab settings
 set tabstop=4
@@ -22,7 +23,6 @@ set expandtab
 set autoindent
 set ruler
 set cursorline
-set undofile
 set wrap
 set textwidth=120
 set formatoptions=qrn1
