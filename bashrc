@@ -7,3 +7,5 @@ fi
 
 export PATH=/usr/local/bin:$PATH
 export PATH=$PATH:~/.local/bin
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path bash)"

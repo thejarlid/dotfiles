@@ -11,6 +11,10 @@ PS1='%{$(tput setaf 75)%}%~ %{$(tput setaf 242)%}$(__git_ps1 " (%s) ")%{$(tput s
 
 export CLICOLOR=1
 export LSCOLORS=Gxfxcxdxbxegedabagacad
+# Load local overrides and secrets if present
+if [ -f "$HOME/.zshrc.local" ]; then
+  source "$HOME/.zshrc.local"
+fi
 
 # +------------+
 # | NAVIGATION |
@@ -46,3 +50,5 @@ source $DOTFILE_DIR/completions.zsh
 # | SYNTAX HIGHLIGHTING |
 # +---------------------+
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
