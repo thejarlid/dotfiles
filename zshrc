@@ -1,4 +1,5 @@
 export DOTFILE_DIR=~/.dotfiles
+eval "$(/opt/homebrew/bin/brew shellenv)"
 unalias theme 2>/dev/null
 theme() { $DOTFILE_DIR/themes/theme "$@" && source $DOTFILE_DIR/themes/current.sh }
 export HISTSIZE=10000                   # Maximum events for internal history
@@ -16,6 +17,21 @@ if [[ -n "$ITERM_SESSION_ID" ]]; then
   source $DOTFILE_DIR/themes/current.sh
   source $DOTFILE_DIR/fzf.zsh
 fi
+# ctags-init: set up auto-updating ctags via git hooks in any project
+ctags-init() {
+  if ! git rev-parse --git-dir > /dev/null 2>&1; then
+    echo "not a git repo"
+    return 1
+  fi
+  local hooks=$(git rev-parse --git-dir)/hooks
+  for hook in post-commit post-merge post-checkout; do
+    echo '#!/bin/sh\nctags -R . &' > "$hooks/$hook"
+    chmod +x "$hooks/$hook"
+  done
+  ctags -R .
+  echo "ctags initialised — will auto-update on commit/merge/checkout"
+}
+
 # Load local overrides and secrets if present
 if [ -f "$HOME/.zshrc.local" ]; then
   source "$HOME/.zshrc.local"

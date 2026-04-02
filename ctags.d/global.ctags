@@ -1,0 +1,42 @@
+--recurse=yes
+--exclude=@.gitignore
+--exclude=.git
+
+# Python
+--exclude=venv
+--exclude=.venv
+--exclude=env
+--exclude=.env
+--exclude=__pycache__
+--exclude=*.pyc
+--exclude=*.pyo
+--exclude=.pytest_cache
+--exclude=.mypy_cache
+--exclude=.ruff_cache
+--exclude=*.egg-info
+--exclude=.eggs
+--exclude=dist
+--exclude=build
+--exclude=site-packages
+
+# JavaScript / TypeScript
+--exclude=node_modules
+--exclude=.next
+--exclude=.nuxt
+--exclude=.svelte-kit
+--exclude=.turbo
+--exclude=.parcel-cache
+--exclude=*.min.js
+--exclude=*.bundle.js
+--exclude=*.chunk.js
+--exclude=*.map
+
+# General build/test output
+--exclude=.cache
+--exclude=coverage
+--exclude=.coverage
+--exclude=htmlcov
+--exclude=out
+--exclude=tmp
+--exclude=.tmp
+--exclude=*.lock

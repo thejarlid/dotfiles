@@ -138,7 +138,12 @@ Leader key is `'`
 
 ### Jump to definition (ctags)
 
-Run `ctags -R .` in the project root first.
+Run `ctags-init` once in any project root — builds the tag index and installs git hooks that auto-regenerate tags on every commit, merge, and checkout.
+
+```sh
+cd ~/projects/myapp
+ctags-init
+```
 
 | Key | Action |
 |-----|--------|
@@ -147,6 +152,24 @@ Run `ctags -R .` in the project root first.
 | `Ctrl+W ]` | Definition in split |
 | `']` | Pick from multiple matches |
 | `gf` | Open file under cursor |
+
+### Typical project session
+
+```sh
+cd ~/projects/myapp
+ctags-init       # first time only
+vim .
+
+# inside vim:
+'f               # open a file
+Ctrl+]           # jump into a definition
+Ctrl+T           # jump back
+'r               # search a term across the whole project
+Tab              # flip to the file that just opened
+'w               # split, open a second file side by side
+Ctrl+H/L         # move between splits
+:wa              # save all open buffers
+```
 
 ### Editing
 
