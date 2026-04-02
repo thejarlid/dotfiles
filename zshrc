@@ -11,7 +11,9 @@ GIT_PS1_SHOWUNTRACKEDFILES=1 # if there're untracked files, then a '%' will be s
 PS1='%{$(tput setaf 75)%}%~ %{$(tput setaf ${THEME_PROMPT_BRANCH_COLOR:-242})%}$(__git_ps1 " (%s) ")%{$(tput setaf 123)%}> '
 
 export CLICOLOR=1
-source $DOTFILE_DIR/themes/current.sh
+if [[ -n "$ITERM_SESSION_ID" ]]; then
+  source $DOTFILE_DIR/themes/current.sh
+fi
 # Load local overrides and secrets if present
 if [ -f "$HOME/.zshrc.local" ]; then
   source "$HOME/.zshrc.local"

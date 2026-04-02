@@ -20,12 +20,18 @@ if [[ ! -f "$THEME_FILE" ]]; then
 fi
 
 source "$THEME_FILE"
+THEME_TERMINAL_BG="${THEME_TERMINAL_BG:-$THEME_TMUX_INACTIVE_BG}"
 
 cat > "$THEMES_DIR/current.tmux" << EOF
 set -g window-active-style 'fg=$THEME_TMUX_ACTIVE_FG,bg=$THEME_TMUX_ACTIVE_BG'
 set -g window-style 'fg=$THEME_TMUX_INACTIVE_FG,bg=$THEME_TMUX_INACTIVE_BG'
 set -g pane-border-style 'fg=$THEME_TMUX_BORDER_FG,bg=$THEME_TMUX_INACTIVE_BG'
 set -g pane-active-border-style 'fg=$THEME_TMUX_ACTIVE_BORDER_FG,bg=$THEME_TMUX_ACTIVE_BG'
+set -g status-style 'fg=$THEME_TMUX_INACTIVE_FG,bg=$THEME_TMUX_INACTIVE_BG'
+set -g status-left-style 'fg=$THEME_TMUX_ACTIVE_FG,bg=$THEME_TMUX_ACTIVE_BORDER_FG'
+set -g status-right-style 'fg=$THEME_TMUX_INACTIVE_FG,bg=$THEME_TMUX_INACTIVE_BG'
+set -g window-status-style 'fg=$THEME_TMUX_INACTIVE_FG,bg=$THEME_TMUX_INACTIVE_BG'
+set -g window-status-current-style 'fg=$THEME_TMUX_ACTIVE_BG,bg=$THEME_TMUX_ACTIVE_BORDER_FG'
 EOF
 
 OVERRIDES_FILE="$(cd "$(dirname "$0")" && pwd)/../vim/theme-overrides/$1.vim"
