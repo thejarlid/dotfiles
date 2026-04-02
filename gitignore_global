@@ -1,0 +1,14 @@
+# vim
+tags
+*.swp
+*.swo
+*.un~
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# editors
+.idea/
+.vscode/

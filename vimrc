@@ -59,18 +59,40 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" plugins
-" :PlugInstall to install the plugins
+" ── Buffers ─────────────────────────────────────────────────────────────────
+set hidden                          " allow switching buffers without saving
+nnoremap <Tab>   :bnext<CR>
+nnoremap <S-Tab> :bprev<CR>
+nnoremap <leader>d :bd<CR>
+nnoremap <leader>b :ls<CR>:b<Space>
+
+" ── Tags (ctags) ─────────────────────────────────────────────────────────────
+set tags=./tags;/                   " search up the tree for a tags file
+nnoremap <C-]>     g<C-]>           " show list if multiple matches
+nnoremap <C-w>]    <C-w>g]          " open definition in split
+nnoremap <leader>] :tselect<CR>     " pick from tag match list
+
+" ── plugins ──────────────────────────────────────────────────────────────────
+" :PlugInstall to install
 call plug#begin()
 
 Plug 'dense-analysis/ale'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
-" Plugin Settings
-" Enable Ruff as the linter for Python files
-let g:ale_linters = { 'python': ['ruff'] }
+" ── fzf.vim ──────────────────────────────────────────────────────────────────
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>p :Buffers<CR>
+nnoremap <leader>r :Rg<CR>
+nnoremap <leader>/ :BLines<CR>
+nnoremap <leader>t :BTags<CR>
 
-" Optional: Configure ALE to automatically fix issues when saving
-let g:ale_fixers = { 'python': ['ruff', 'ruff_format']}
+let g:fzf_layout = { 'down': '40%' }
+let g:fzf_preview_window = ['right:55%:hidden', 'ctrl-/']
+
+" ── ALE ──────────────────────────────────────────────────────────────────────
+let g:ale_linters = { 'python': ['ruff'] }
+let g:ale_fixers  = { 'python': ['ruff', 'ruff_format'] }
 let g:ale_fix_on_save = 1

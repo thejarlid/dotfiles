@@ -13,6 +13,7 @@
     ~/.bash_profile:
     ~/.bashrc:
     ~/.gitconfig:
+    ~/.gitignore_global:
     ~/.config/nvim:
     ~/.ssh/config: ssh/config
     ~/.tmux.conf:

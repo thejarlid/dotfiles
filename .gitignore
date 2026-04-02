@@ -2,6 +2,9 @@
 *.swp
 *.swo
 vim/.netrwhist
+vim/plugged/
 themes/current.tmux
 themes/current.vim
+themes/current.sh
+themes/current_overrides.vim
 themes/.active
