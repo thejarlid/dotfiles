@@ -14,6 +14,20 @@ color flate2            " set theme to the flate theme
 
 inoremap <nowait> jj <ESC>       " remap escape to "jj"
 
+" With Claude Code for example I want external edits to show up live in vim
+" these settings allow us to refresh when changes externally occur
+set autoread            " Automatically read the file if changed outside vim, if no unsaved changes
+set updatetime=200      " frequency knob
+augroup autoread_live   " reload trigger
+  autocmd!
+  autocmd FocusGained,BufEnter,CursorHold *
+        \ if mode() != 'c' | checktime | endif
+augroup END
+
+" Transparent background so tmux pane dimming shows through
+highlight Normal ctermbg=NONE guibg=NONE
+highlight NonText ctermbg=NONE guibg=NONE
+
 " tab settings
 set tabstop=4
 set shiftwidth=4
