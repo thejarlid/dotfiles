@@ -85,6 +85,7 @@ call plug#end()
 
 " ── fzf.vim ──────────────────────────────────────────────────────────────────
 nnoremap <leader>f :Files<CR>
+nnoremap <leader>F :Files ~<CR>
 nnoremap <leader>p :Buffers<CR>
 nnoremap <leader>r :Rg<CR>
 nnoremap <leader>/ :BLines<CR>
