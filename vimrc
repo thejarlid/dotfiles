@@ -79,6 +79,7 @@ call plug#begin()
 Plug 'dense-analysis/ale'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'ap/vim-buftabline'
 
 call plug#end()
 
@@ -91,6 +92,10 @@ nnoremap <leader>t :BTags<CR>
 
 let g:fzf_layout = { 'down': '40%' }
 let g:fzf_preview_window = ['right:55%:hidden', 'ctrl-/']
+
+" ── buftabline ───────────────────────────────────────────────────────────────
+let g:buftabline_numbers = 1        " show buffer numbers
+let g:buftabline_indicators = 1     " show modified indicator
 
 " ── ALE ──────────────────────────────────────────────────────────────────────
 let g:ale_linters = { 'python': ['ruff'] }
