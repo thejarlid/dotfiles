@@ -1,4 +1,5 @@
 export DOTFILE_DIR=~/.dotfiles
+unalias theme 2>/dev/null
 theme() { $DOTFILE_DIR/themes/theme "$@" && source $DOTFILE_DIR/themes/current.sh }
 export HISTSIZE=10000                   # Maximum events for internal history
 export SAVEHIST=10000                   # Maximum events in history file
@@ -13,6 +14,7 @@ PS1='%{$(tput setaf 75)%}%~ %{$(tput setaf ${THEME_PROMPT_BRANCH_COLOR:-242})%}$
 export CLICOLOR=1
 if [[ -n "$ITERM_SESSION_ID" ]]; then
   source $DOTFILE_DIR/themes/current.sh
+  source $DOTFILE_DIR/fzf.zsh
 fi
 # Load local overrides and secrets if present
 if [ -f "$HOME/.zshrc.local" ]; then
