@@ -46,6 +46,7 @@ EOF
 
 cat > "$THEMES_DIR/current.sh" << EOF
 export LSCOLORS=$THEME_LSCOLORS
+export THEME_PROMPT_BRANCH_COLOR=$THEME_PROMPT_BRANCH_COLOR
 EOF
 
 echo "$1" > "$THEMES_DIR/.active"

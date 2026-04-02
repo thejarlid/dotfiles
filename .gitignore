@@ -1,4 +1,6 @@
 *.un~
+*.swp
+*.swo
 vim/.netrwhist
 themes/current.tmux
 themes/current.vim

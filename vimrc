@@ -15,6 +15,10 @@ source $DOTFILE_DIR/themes/current.vim
 
 inoremap <nowait> jj <ESC>       " remap escape to "jj"
 
+" Enable focus event reporting so FocusGained/FocusLost autocmds fire in tmux
+let &t_fe = "\e[?1004h"
+let &t_fd = "\e[?1004l"
+
 " With Claude Code for example I want external edits to show up live in vim
 " these settings allow us to refresh when changes externally occur
 set autoread            " Automatically read the file if changed outside vim, if no unsaved changes
@@ -25,7 +29,7 @@ augroup autoread_live   " reload trigger
         \ if mode() != 'c' | checktime | endif
   autocmd FocusGained * source $DOTFILE_DIR/themes/current.vim
   autocmd FocusGained * set cursorline
-  autocmd FocusLost   * set nocursorline
+  autocmd FocusLost   * set nocursorline | highlight CursorLine guibg=NONE ctermbg=NONE
 augroup END
 
 " Transparent background so tmux pane dimming shows through
