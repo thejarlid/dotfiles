@@ -1,2 +1,5 @@
 *.un~
 vim/.netrwhist
+themes/current.tmux
+themes/current.vim
+themes/.active

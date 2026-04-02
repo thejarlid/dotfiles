@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+set -e
+
+THEMES_DIR="$(cd "$(dirname "$0")" && pwd)"
+AVAILABLE="$THEMES_DIR/available"
+
+if [[ -z "$1" ]]; then
+    echo "Usage: theme <name>"
+    echo "Available themes:"
+    for f in "$AVAILABLE"/*.sh; do
+        echo "  $(basename "$f" .sh)"
+    done
+    exit 1
+fi
+
+THEME_FILE="$AVAILABLE/$1.sh"
+if [[ ! -f "$THEME_FILE" ]]; then
+    echo "Theme '$1' not found in $AVAILABLE"
+    exit 1
+fi
+
+source "$THEME_FILE"
+
+cat > "$THEMES_DIR/current.tmux" << EOF
+set -g window-active-style 'fg=$THEME_TMUX_ACTIVE_FG,bg=$THEME_TMUX_ACTIVE_BG'
+set -g window-style 'fg=$THEME_TMUX_INACTIVE_FG,bg=$THEME_TMUX_INACTIVE_BG'
+set -g pane-border-style 'fg=$THEME_TMUX_BORDER_FG,bg=$THEME_TMUX_INACTIVE_BG'
+set -g pane-active-border-style 'fg=$THEME_TMUX_ACTIVE_BORDER_FG,bg=$THEME_TMUX_ACTIVE_BG'
+EOF
+
+cat > "$THEMES_DIR/current.vim" << EOF
+set background=$THEME_VIM_BACKGROUND
+colorscheme $THEME_VIM_COLORSCHEME
+highlight Normal ctermbg=NONE guibg=NONE
+highlight NonText ctermbg=NONE guibg=NONE
+EOF
+
+echo "$1" > "$THEMES_DIR/.active"
+
+if [[ -n "$TMUX" ]]; then
+    tmux source-file "$THEMES_DIR/current.tmux"
+fi
+
+echo "Theme: $1"

@@ -10,7 +10,7 @@ set incsearch           " incremental search
 set number              " show current line number
 set relativenumber      " show relative line numbers
 let mapleader = "'"     " remap the leader to '
-color flate2            " set theme to the flate theme
+source $DOTFILE_DIR/themes/current.vim
 
 inoremap <nowait> jj <ESC>       " remap escape to "jj"
 
@@ -22,6 +22,7 @@ augroup autoread_live   " reload trigger
   autocmd!
   autocmd FocusGained,BufEnter,CursorHold *
         \ if mode() != 'c' | checktime | endif
+  autocmd FocusGained * source $DOTFILE_DIR/themes/current.vim
 augroup END
 
 " Transparent background so tmux pane dimming shows through
