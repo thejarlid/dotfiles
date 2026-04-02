@@ -2,6 +2,7 @@
 
 set background=dark     " remove background
 set mouse=a             " allow mouse mode
+set termguicolors       " enable true color (uses guifg/guibg from colorschemes)
 syntax on               " syntax highlighting
 set hlsearch            " highlight all search results
 set ignorecase          " case insensitive search
@@ -23,6 +24,8 @@ augroup autoread_live   " reload trigger
   autocmd FocusGained,BufEnter,CursorHold *
         \ if mode() != 'c' | checktime | endif
   autocmd FocusGained * source $DOTFILE_DIR/themes/current.vim
+  autocmd FocusGained * set cursorline
+  autocmd FocusLost   * set nocursorline
 augroup END
 
 " Transparent background so tmux pane dimming shows through

@@ -108,15 +108,15 @@ call s:h("NonText", s:hex.color0, s:hex.color11, s:bit.color0, s:bit.color10, "n
 
 
 " ==========> Syntax highlights
-call s:h("Comment", "", s:hex.color12, "", s:bit.color11, "none")
+call s:h("Comment", "", s:hex.color8, "", s:bit.color5, "none")
 call s:h("Constant", "", s:hex.color13, "", s:bit.color12, "none")
 call s:h("Special", "", s:hex.color13, "", s:bit.color12, "none")
 call s:h("Identifier", "", s:hex.color13, "", s:bit.color12, "none")
 call s:h("Function", "", s:hex.color14, "", s:bit.color13, "none")
-call s:h("Statement", "", s:hex.color12, "", s:bit.color11, "none")
+call s:h("Statement", "", s:hex.color6, "", s:bit.color6, "none")
 call s:h("Operator", "", s:hex.color13, "", s:bit.color12, "none")
-call s:h("PreProc", "", s:hex.color12, "", s:bit.color11, "none")
-call s:h("Type", "", s:hex.color12, "", s:bit.color11, "none")
+call s:h("PreProc", "", s:hex.color6, "", s:bit.color6, "none")
+call s:h("Type", "", s:hex.color6, "", s:bit.color6, "none")
 call s:h("String", "", s:hex.color15, "", s:bit.color14, "none")
 call s:h("Number", "", s:hex.color16, "", s:bit.color15, "none")
 

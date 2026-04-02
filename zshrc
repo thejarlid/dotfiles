@@ -1,4 +1,5 @@
 export DOTFILE_DIR=~/.dotfiles
+theme() { $DOTFILE_DIR/themes/theme "$@" && source $DOTFILE_DIR/themes/current.sh }
 export HISTSIZE=10000                   # Maximum events for internal history
 export SAVEHIST=10000                   # Maximum events in history file
 
@@ -10,7 +11,7 @@ GIT_PS1_SHOWUNTRACKEDFILES=1 # if there're untracked files, then a '%' will be s
 PS1='%{$(tput setaf 75)%}%~ %{$(tput setaf 242)%}$(__git_ps1 " (%s) ")%{$(tput setaf 123)%}> '
 
 export CLICOLOR=1
-export LSCOLORS=Gxfxcxdxbxegedabagacad
+source $DOTFILE_DIR/themes/current.sh
 # Load local overrides and secrets if present
 if [ -f "$HOME/.zshrc.local" ]; then
   source "$HOME/.zshrc.local"
