@@ -22,10 +22,13 @@ return {
 
             require("mason-lspconfig").setup({
                 ensure_installed = {
-                    "pyright",  -- python
-                    "ts_ls",    -- typescript / javascript
-                    "lua_ls",   -- lua
-                    "clangd",   -- c / c++
+                    "pyright",       -- python
+                    "ts_ls",         -- typescript / javascript
+                    "lua_ls",        -- lua
+                    "clangd",        -- c / c++ / objective-c
+                    "rust_analyzer", -- rust
+                    -- swift / objective-c: uses sourcekit-lsp which ships with Xcode,
+                    -- no mason install needed, nvim picks it up automatically
                 },
                 automatic_enable = true, -- calls vim.lsp.enable() for each installed server
             })
