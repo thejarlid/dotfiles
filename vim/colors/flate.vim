@@ -122,7 +122,3 @@ call s:h("Number", "", s:hex.color16, "", s:bit.color15, "none")
 
 highlight link cStatement Statement
 highlight link cSpecial Special
-
-
-" Generated using https://github.com/nice/themeforge
-" Feel free to remove the above URL and this line.

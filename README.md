@@ -270,6 +270,53 @@ Vim is kept as a lightweight fallback. Leader key is `<Space>`.
 
 ---
 
+## Manual theme setup (without the theme system)
+
+If you just want the colours on a machine without the full dotfiles setup, here's what to change and where.
+
+The values below are for `flate`. Swap in `flate-arc` values from the table if preferred.
+
+| | flate | flate-arc |
+|---|---|---|
+| Active bg | `#14151e` | `#1a1d26` |
+| Inactive bg | `#0c0d15` | `#12141c` |
+| Accent | `#7c6fd4` | `#00cecb` |
+
+### iTerm2
+
+Import `themes/flate.itermcolors` (or `themes/flate-arc.itermcolors`):
+**Preferences → Profiles → Colors → Color Presets → Import**
+
+### tmux
+
+Add to `~/.tmux.conf`:
+
+```sh
+set -g window-active-style 'fg=#c8c8d4,bg=#14151e'
+set -g window-style 'fg=#4a4b5e,bg=#0c0d15'
+set -g pane-border-style 'fg=#2a2b3a,bg=#0c0d15'
+set -g pane-active-border-style 'fg=#7c6fd4,bg=#14151e'
+set -g status-style 'fg=#4a4b5e,bg=#0c0d15'
+set -g status-left-style 'fg=#c8c8d4,bg=#7c6fd4'
+set -g status-right-style 'fg=#4a4b5e,bg=#0c0d15'
+set -g window-status-style 'fg=#4a4b5e,bg=#0c0d15'
+set -g window-status-current-style 'fg=#0c0d15,bg=#7c6fd4'
+```
+
+### Shell (ls colors)
+
+Add to `~/.zshrc`:
+
+```sh
+export LSCOLORS="ExGxFxdxCxDxDxabagacad"
+```
+
+### nvim
+
+Copy `nvim/lua/thejarlid/lazy/colorscheme.lua` into your nvim config and make sure `vim-monotone` is installed. Open nvim and run `:Lazy sync`.
+
+---
+
 ## License
 
 Copyright (c) Dilraj Devgun. Released under the MIT License. See [LICENSE.md](LICENSE.md) for details.
