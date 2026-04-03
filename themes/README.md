@@ -14,6 +14,7 @@ theme              # list available themes
 | Name | Background | Accent |
 |------|-----------|--------|
 | `flate` | `#14151e` | Purple `#7c6fd4` |
+| `flate-arc` | `#1a1d26` | Cyan `#00cecb` |
 | `default` | `#303030` | Blue `colour81` |
 | `snazzy` | `#282a36` | Cyan `#57c7ff` |
 | `batman` | `#0a0a0a` | Gold `#f0c000` |
@@ -53,6 +54,7 @@ Standalone `.itermcolors` files live in `themes/` and can be imported into iTerm
 | File | Description |
 |------|-------------|
 | `flate.itermcolors` | Derived from the flate vim colorscheme palette |
+| `flate-arc.itermcolors` | Arc variant — same palette, cyan accent, slightly warmer bg |
 
 ## How it works
 
