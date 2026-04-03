@@ -8,6 +8,7 @@
 
 - create:
   - ~/.ssh
+  - ~/.config/karabiner
 
 - link:
     ~/.bash_profile:
@@ -16,6 +17,7 @@
     ~/.gitignore_global:
     ~/.ctags.d: ctags.d
     ~/.config/nvim:
+    ~/.config/karabiner/karabiner.json: karabiner/karabiner.json
     ~/.ssh/config: ssh/config
     ~/.tmux.conf:
     ~/.vim:
