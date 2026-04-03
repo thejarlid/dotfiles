@@ -28,6 +28,7 @@ vim.opt.textwidth = 120
 vim.opt.colorcolumn = "100"
 vim.opt.hidden = true           -- allow switching buffers without saving
 vim.opt.tags = "./tags;"        -- search up the tree for a tags file
+vim.opt.scrolloff = 8           -- keep 8 lines above/below cursor when scrolling
 
 -- focus autocmds (cursorline dims on inactive pane)
 vim.api.nvim_create_autocmd("FocusGained", {

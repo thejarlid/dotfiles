@@ -10,7 +10,7 @@ set smartcase           " smart case to avoid ignorecase toggles
 set incsearch           " incremental search
 set number              " show current line number
 set relativenumber      " show relative line numbers
-let mapleader = "'"     " remap the leader to '
+let mapleader = " "     " remap the leader to space
 
 inoremap <nowait> jj <ESC>       " remap escape to "jj"
 

@@ -5,7 +5,6 @@ theme() { $DOTFILE_DIR/themes/theme "$@" && source $DOTFILE_DIR/themes/current.s
 export HISTSIZE=10000                   # Maximum events for internal history
 export SAVEHIST=10000                   # Maximum events in history file
 
-#export PS1="%2~ > "
 source $DOTFILE_DIR/git-prompt.sh
 setopt PROMPT_SUBST 
 GIT_PS1_SHOWDIRTYSTATE=1 # unstaged (*) and staged (+) changes will be shown next to the branch name
@@ -23,7 +22,7 @@ ctags-init() {
   fi
   local hooks=$(git rev-parse --git-dir)/hooks
   for hook in post-commit post-merge post-checkout; do
-    echo '#!/bin/sh\nctags -R . &' > "$hooks/$hook"
+    printf '#!/bin/sh\nctags -R . &\n' > "$hooks/$hook"
     chmod +x "$hooks/$hook"
   done
   ctags -R .
