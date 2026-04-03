@@ -1,6 +1,6 @@
 " basic configuration
 
-set background=dark     " remove background
+set background=dark
 set mouse=a             " allow mouse mode
 set termguicolors       " enable true color (uses guifg/guibg from colorschemes)
 syntax on               " syntax highlighting
@@ -11,9 +11,6 @@ set incsearch           " incremental search
 set number              " show current line number
 set relativenumber      " show relative line numbers
 let mapleader = "'"     " remap the leader to '
-if !empty($TMUX)
-  source $DOTFILE_DIR/themes/current.vim
-endif
 
 inoremap <nowait> jj <ESC>       " remap escape to "jj"
 
@@ -29,14 +26,10 @@ augroup autoread_live   " reload trigger
   autocmd!
   autocmd FocusGained,BufEnter,CursorHold *
         \ if mode() != 'c' | checktime | endif
-  autocmd FocusGained * if !empty($TMUX) | source $DOTFILE_DIR/themes/current.vim | endif
   autocmd FocusGained * set cursorline
   autocmd FocusLost   * set nocursorline | highlight CursorLine guibg=NONE ctermbg=NONE
 augroup END
 
-" Transparent background so tmux pane dimming shows through
-highlight Normal ctermbg=NONE guibg=NONE
-highlight NonText ctermbg=NONE guibg=NONE
 
 " tab settings
 set tabstop=4
@@ -73,15 +66,27 @@ nnoremap <C-w>]    <C-w>g]          " open definition in split
 nnoremap <leader>] :tselect<CR>     " pick from tag match list
 
 " ── plugins ──────────────────────────────────────────────────────────────────
-" :PlugInstall to install
+" Auto-install vim-plug if missing
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin()
 
+Plug 'Lokaltog/vim-monotone'
 Plug 'dense-analysis/ale'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'ap/vim-buftabline'
 
 call plug#end()
+
+colorscheme monotone
+highlight Normal ctermbg=NONE guibg=NONE
+highlight NonText ctermbg=NONE guibg=NONE
+highlight EndOfBuffer ctermbg=NONE guibg=NONE
 
 " ── fzf.vim ──────────────────────────────────────────────────────────────────
 nnoremap <leader>f :Files<CR>

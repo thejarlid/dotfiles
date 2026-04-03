@@ -3,6 +3,7 @@
 *.swo
 vim/.netrwhist
 vim/plugged/
+vim/autoload/
 themes/current.tmux
 themes/current.vim
 themes/current.sh

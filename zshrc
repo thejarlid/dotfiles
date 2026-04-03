@@ -13,10 +13,8 @@ GIT_PS1_SHOWUNTRACKEDFILES=1 # if there're untracked files, then a '%' will be s
 PS1='%{$(tput setaf 75)%}%~ %{$(tput setaf ${THEME_PROMPT_BRANCH_COLOR:-242})%}$(__git_ps1 " (%s) ")%{$(tput setaf 123)%}> '
 
 export CLICOLOR=1
-if [[ -n "$ITERM_SESSION_ID" ]]; then
-  source $DOTFILE_DIR/themes/current.sh
-  source $DOTFILE_DIR/fzf.zsh
-fi
+source $DOTFILE_DIR/themes/current.sh
+source $DOTFILE_DIR/fzf.zsh
 # ctags-init: set up auto-updating ctags via git hooks in any project
 ctags-init() {
   if ! git rev-parse --git-dir > /dev/null 2>&1; then

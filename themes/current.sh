@@ -1,2 +1,2 @@
-export LSCOLORS=CxGxcxdxcxegedabagacad
+export LSCOLORS=GxfxCxdxbxegedabagacad
 export THEME_PROMPT_BRANCH_COLOR=242

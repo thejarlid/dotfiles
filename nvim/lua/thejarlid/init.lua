@@ -1,4 +1,5 @@
 vim.g.mapleader = " "   -- set leader key to '
 
-require("thejarlid.lazy_init")
 require("thejarlid.set")
+require("thejarlid.remap")
+require("thejarlid.lazy_init")

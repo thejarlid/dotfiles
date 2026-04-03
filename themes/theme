@@ -34,22 +34,6 @@ set -g window-status-style 'fg=$THEME_TMUX_INACTIVE_FG,bg=$THEME_TMUX_INACTIVE_B
 set -g window-status-current-style 'fg=$THEME_TMUX_ACTIVE_BG,bg=$THEME_TMUX_ACTIVE_BORDER_FG'
 EOF
 
-OVERRIDES_FILE="$(cd "$(dirname "$0")" && pwd)/../vim/theme-overrides/$1.vim"
-if [[ -f "$OVERRIDES_FILE" ]]; then
-    cp "$OVERRIDES_FILE" "$THEMES_DIR/current_overrides.vim"
-else
-    > "$THEMES_DIR/current_overrides.vim"
-fi
-
-cat > "$THEMES_DIR/current.vim" << EOF
-set background=$THEME_VIM_BACKGROUND
-colorscheme $THEME_VIM_COLORSCHEME
-highlight Normal ctermbg=NONE guibg=NONE
-highlight NonText ctermbg=NONE guibg=NONE
-highlight EndOfBuffer ctermbg=NONE guibg=NONE
-source $THEMES_DIR/current_overrides.vim
-EOF
-
 cat > "$THEMES_DIR/current.sh" << EOF
 export LSCOLORS=$THEME_LSCOLORS
 export THEME_PROMPT_BRANCH_COLOR=$THEME_PROMPT_BRANCH_COLOR
