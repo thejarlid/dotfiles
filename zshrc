@@ -9,7 +9,15 @@ source $DOTFILE_DIR/git-prompt.sh
 setopt PROMPT_SUBST 
 GIT_PS1_SHOWDIRTYSTATE=1 # unstaged (*) and staged (+) changes will be shown next to the branch name
 GIT_PS1_SHOWUNTRACKEDFILES=1 # if there're untracked files, then a '%' will be shown next to the branch name
-PS1='%{$(tput setaf 75)%}%~ %{$(tput setaf ${THEME_PROMPT_BRANCH_COLOR:-242})%}$(__git_ps1 " (%s) ")%{$(tput setaf 123)%}> '
+_prompt_indicator() {
+  if [[ $? -eq 0 ]]; then
+    tput setaf ${THEME_PROMPT_INDICATOR_COLOR:-123}
+  else
+    tput setaf 160
+  fi
+}
+PS1='%{$(tput setaf ${THEME_PROMPT_PATH_COLOR:-75})%}%~%{$(tput setaf ${THEME_PROMPT_BRANCH_COLOR:-242})%}$(__git_ps1 " %s")
+%{$(_prompt_indicator)%}❯%{$(tput sgr0)%} '
 
 export CLICOLOR=1
 source $DOTFILE_DIR/themes/current.sh
